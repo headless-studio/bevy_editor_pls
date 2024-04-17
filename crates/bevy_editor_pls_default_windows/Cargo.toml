@@ -1,34 +1,35 @@
 [package]
-name = "bevy_editor_pls_default_windows"
-version.workspace = true
-edition.workspace = true
-license.workspace = true
-repository.workspace = true
 description.workspace = true
-readme.workspace = true
+edition.workspace     = true
+license.workspace     = true
+name                  = "bevy_editor_pls_default_windows"
+readme.workspace      = true
+repository.workspace  = true
+version.workspace     = true
 
 [features]
 highlight_changes = ["bevy-inspector-egui/highlight_changes"]
 
 [dependencies]
 bevy = { version = "0.13", default-features = false, features = [
+    "bevy_core_pipeline",
+    "bevy_pbr",
     "bevy_scene",
+    "bevy_sprite",
     "bevy_text",
     "bevy_ui",
-    "bevy_sprite",
-    "bevy_pbr",
-    "bevy_core_pipeline",
 ] }
-bevy_editor_pls_core.workspace = true
 bevy-inspector-egui.workspace = true
+bevy_editor_pls_core.workspace = true
+bevy_mod_picking.workspace = true
 # bevy_mod_picking = { git = "https://github.com/aevyrie/bevy_mod_picking", rev = "7a9ffd020b530acef25c8cf8bc9475b7a13bd353", default-features = false, features = [
 #     "backend_raycast",
 #     "backend_egui",
 #     "backend_sprite",
 #     "backend_bevy_ui",
 # ] }
-indexmap = "2"
-pretty-type-name = "1.0"
-bevy_mod_debugdump = "0.10"
-opener = "0.6.0"
+bevy_mod_debugdump   = "0.10"
 egui-gizmo.workspace = true
+indexmap             = "2"
+opener               = "0.7"
+pretty-type-name     = "1.0"

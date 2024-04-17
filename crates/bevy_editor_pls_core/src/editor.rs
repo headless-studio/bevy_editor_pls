@@ -165,6 +165,7 @@ impl EditorInternalState {
     ) -> [NodeIndex; 2] {
         self.split::<W>(parent, egui_dock::Split::Right, fraction)
     }
+    
     pub fn split_left<W: EditorWindow>(
         &mut self,
         parent: NodeIndex,
@@ -172,6 +173,7 @@ impl EditorInternalState {
     ) -> [NodeIndex; 2] {
         self.split::<W>(parent, egui_dock::Split::Left, fraction)
     }
+
     pub fn split_above<W: EditorWindow>(
         &mut self,
         parent: NodeIndex,
@@ -179,6 +181,7 @@ impl EditorInternalState {
     ) -> [NodeIndex; 2] {
         self.split::<W>(parent, egui_dock::Split::Above, fraction)
     }
+
     pub fn split_below<W: EditorWindow>(
         &mut self,
         parent: NodeIndex,

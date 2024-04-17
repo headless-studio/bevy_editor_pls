@@ -13,6 +13,7 @@ pub trait EditorWindow: 'static {
     const DEFAULT_SIZE: (f32, f32) = (0.0, 0.0);
 
     fn ui(world: &mut World, cx: EditorWindowContext, ui: &mut egui::Ui);
+
     /// Ui shown in the `Open Window` menu item. By default opens the window as a floating window.
     fn menu_ui(world: &mut World, mut cx: EditorWindowContext, ui: &mut egui::Ui) {
         let _ = world;
@@ -22,10 +23,12 @@ pub trait EditorWindow: 'static {
             ui.close_menu();
         }
     }
+
     /// Ui shown in the viewport toolbar.
     fn viewport_toolbar_ui(world: &mut World, cx: EditorWindowContext, ui: &mut egui::Ui) {
         let _ = (world, cx, ui);
     }
+
     /// Ui shown on top of the game viewport.
     fn viewport_ui(world: &mut World, cx: EditorWindowContext, ui: &mut egui::Ui) {
         let _ = (world, cx, ui);
@@ -51,6 +54,7 @@ impl EditorWindowContext<'_> {
             .get_mut(&TypeId::of::<W>())
             .and_then(|s| s.downcast_mut::<W::State>())
     }
+
     pub fn state<W: EditorWindow>(&self) -> Option<&W::State> {
         self.window_states
             .get(&TypeId::of::<W>())
@@ -66,6 +70,7 @@ impl EditorWindowContext<'_> {
             .unwrap()
             .map(|val| &mut **val)
     }
+    
     pub fn state_mut_triplet<W1: EditorWindow, W2: EditorWindow, W3: EditorWindow>(
         &mut self,
     ) -> Option<(&mut W1::State, &mut W2::State, &mut W3::State)> {
