@@ -49,7 +49,6 @@ fn auto_add_editor_picking_set(
 ) {
     for (entity, handle) in meshes_query.iter() {
         if let Some(mesh) = meshes.get(handle) {
-            info!("Adding pickable to mesh {:?}", entity);
             if let PrimitiveTopology::TriangleList = mesh.primitive_topology() {
                 commands.entity(entity).insert((
                     PickableBundle::default(),
